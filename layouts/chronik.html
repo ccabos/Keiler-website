@@ -1,0 +1,33 @@
+{{/*
+  Eigene Seite für die Chronik, sobald sie für die Startseite zu lang wird
+  (Konzept, Abschnitt 3). Zeigt den Fließtext und darunter den Zeitstrahl –
+  auf der Startseite steht dann nur noch der Anriss mit Link hierher.
+
+  Wird über `layout: chronik` im Front Matter von content/chronik.md gewählt.
+*/}}
+{{ define "main" }}
+  <article class="abschnitt">
+    <div class="wrap schmal">
+      <h1>{{ .Title }}</h1>
+      <div class="prosa">{{ .Content }}</div>
+    </div>
+  </article>
+
+  {{ with hugo.Data.chronik }}
+    <section class="abschnitt abschnitt-betont">
+      <div class="wrap schmal">
+        <h2>Auf einen Blick</h2>
+        <ol class="zeitstrahl">
+          {{ range . }}
+            <li>
+              <span class="jahr">{{ .jahr }}</span>
+              <div class="eintraege">
+                {{ range .ereignisse }}<p>{{ . }}</p>{{ end }}
+              </div>
+            </li>
+          {{ end }}
+        </ol>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
