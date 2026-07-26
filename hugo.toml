@@ -19,7 +19,8 @@ enableGitInfo = false
   sixpackURL = "https://www.sixpack-liga.de/"
   sixpackEmbed = false
   # Mannschaftsfoto für den Kopf, abgelegt unter static/bilder/
-  heroImage = ""
+  heroImage = "/bilder/aufstieg-2018.jpg"
+  heroAlt = "Die Keiler feiern den Aufstieg 2018 in Trikots mit der Aufschrift Aufsteiger, viele mit erhobenen Fäusten"
 
 [markup]
   [markup.goldmark.renderer]

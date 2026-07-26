@@ -72,19 +72,25 @@ a:hover { text-decoration-thickness: 2px; }
 
 .hero { position: relative; background: var(--tinte); }
 .hero-bild {
-  width: 100%; max-height: 70vh; object-fit: cover;
-  opacity: .55;
+  width: 100%; max-height: 78vh; object-fit: cover;
+  object-position: center 38%;   /* Gesichter statt Fussboden im Ausschnitt */
 }
+/* Ein echtes Foto soll ein Foto bleiben – abgedunkelt wird nur so weit,
+   dass die Schrift darauf sicher lesbar ist. Das erledigt der Verlauf
+   unten, nicht eine Deckkraft über dem ganzen Bild. */
+.hero-bild.hat-bild { opacity: 1; }
+
 .hero-platzhalter {
-  min-height: 42vh;
+  min-height: 42vh; opacity: .55;
   background: linear-gradient(160deg, #3a352f, #23211e 70%);
 }
 .hero-text {
   position: absolute; inset-inline: 0; bottom: 0;
-  padding-block: 2.5rem 2rem;
-  background: linear-gradient(transparent, rgba(0, 0, 0, .72));
+  padding-block: 5rem 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .35) 35%, rgba(0, 0, 0, .82));
   color: #fff;
 }
+.hero-text h1, .claim { text-shadow: 0 1px 12px rgba(0, 0, 0, .55); }
 .hero-text h1 {
   margin: 0; font-size: clamp(2rem, 6vw, 3.6rem);
   letter-spacing: .02em; line-height: 1.1;
