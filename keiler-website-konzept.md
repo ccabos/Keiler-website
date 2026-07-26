@@ -112,8 +112,8 @@ aufgeschrieben wurde.
 
 ## 6. Offene Punkte für die Mannschaft
 
-1. **Namen:** Dürfen eure Namen auf der Seite genannt werden? Vorschalg: nur Vornamen.
-2. **Siypack-tabelle:** Nur verlinken oder direkt einbetten?
+1. **Namen:** Dürfen eure Namen auf der Seite genannt werden? Vorschlag: nur Vornamen.
+2. **Sixpack-tabelle:** Nur verlinken oder direkt einbetten?
 3. **Fotoarchiv:** Auswahl retten oder ganz weglassen – *und wer sortiert?*
 4. **Chronik:** Wer steuert Erinnerungen, Fotos und Material bei?
 
