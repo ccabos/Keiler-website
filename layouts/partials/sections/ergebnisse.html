@@ -1,0 +1,18 @@
+{{/*
+  Entscheidung 4 ist noch offen: verlinken oder einbetten.
+  Umschalten über sixpackEmbed in hugo.toml – der Rest bleibt gleich.
+*/}}
+<section id="ergebnisse" class="abschnitt">
+  <div class="wrap schmal">
+    <h2>Ergebnisse</h2>
+    <p>Tabelle und Spielplan pflegt die Sixpack-Liga.</p>
+    {{ if site.Params.sixpackEmbed }}
+      <div class="einbettung">
+        <iframe src="{{ site.Params.sixpackURL }}" title="Tabelle der Sixpack-Liga" loading="lazy"></iframe>
+      </div>
+      <p class="hinweis"><a href="{{ site.Params.sixpackURL }}" rel="noopener">Direkt zu sixpack-liga.de</a></p>
+    {{ else }}
+      <p><a class="knopf" href="{{ site.Params.sixpackURL }}" rel="noopener">Zur Tabelle auf sixpack-liga.de</a></p>
+    {{ end }}
+  </div>
+</section>

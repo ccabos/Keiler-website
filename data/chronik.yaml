@@ -1,0 +1,43 @@
+# Zeitstrahl der Chronik.
+# Übernommen aus Abschnitt 5 des Konzepts ("Bereits gefundene Ankerpunkte").
+# Das ist das Gerüst, nicht die fertige Chronik – Einträge ergänzen,
+# präzisieren und mit Monatsangaben versehen, sobald das Material da ist.
+#
+# Bearbeiten geht direkt auf github.com: Datei öffnen, Stift anklicken.
+# Format je Jahr:
+#   - jahr: 2018
+#     ereignisse:
+#       - "Ein Satz pro Ereignis."
+
+- jahr: "2007–2017"
+  ereignisse:
+    - "Die Ergebnisse sind durchgehend dokumentiert."
+
+- jahr: "2013"
+  ereignisse:
+    - "Die Protokolle der Mannschaftssitzungen beginnen."
+
+- jahr: "2018"
+  ereignisse:
+    - "Aufstieg in die Gruppe Titan."
+    - "Peter gibt die Rolle des Oberkeilers an Arne ab."
+    - "Keiler-Anton-Cup, Frischlingsfest und Kinderfest im UHC."
+
+- jahr: "2019"
+  ereignisse:
+    - "Keiler-Anton-Cup."
+    - "Segelwochenende von Harlingen nach Terschelling."
+    - "Strandsegeln in St. Peter-Ording."
+    - "Spiel gegen die Prinzen am 10. September."
+
+- jahr: "2022"
+  ereignisse:
+    - "Erste Pokalrunde: 2:0 gegen die Alstersticks."
+    - "20. Prinzen Herbstcup."
+    - "Kart-Racing und Winterhockey."
+
+- jahr: "2023"
+  ereignisse:
+    - "Paddle Tennis."
+    - "Acht selbstgebaute Kindertore für den UHC."
+    - "Begegnung mit UHC-Weltmeister Hannes Müller."

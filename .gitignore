@@ -3,6 +3,16 @@
 /resources/_gen/
 .hugo_build.lock
 
+# WordPress-Altdaten gehoeren NICHT ins Repository.
+# Sie enthalten personenbezogene Daten (Kommentar-Adressen, Mitgliedsnamen,
+# Sitzungsprotokolle) und liegen deshalb ausserhalb: ../wp-backup/
+# Diese Regeln sind nur die zweite Sicherung, falls doch etwas hier landet.
+/wp-backup/
+/wp-export/
+*.wpress
+*.wxr
+wordpress-export*.xml
+
 # Betriebssystem / Dropbox
 Thumbs.db
 desktop.ini

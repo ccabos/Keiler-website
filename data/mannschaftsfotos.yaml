@@ -1,0 +1,14 @@
+# Mannschaftsfotos über die Jahre.
+# Entscheidung 2 des Konzepts: keine Namenslisten. Vornamen höchstens
+# in der Bildunterschrift, und auch das nur, wenn die Mannschaft zustimmt
+# (offener Punkt 1).
+#
+# Bilddateien nach static/bilder/mannschaft/ legen, dann hier eintragen:
+#
+# - jahr: "2019"
+#   datei: "/bilder/mannschaft/2019.jpg"
+#   unterschrift: "Nach dem Keiler-Anton-Cup"
+#   alt: "Mannschaftsfoto von 2019 auf dem Platz"
+#
+# Solange die Liste leer ist, steht im Abschnitt ein ruhiger Hinweis
+# statt einer kaputten Galerie.

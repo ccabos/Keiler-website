@@ -1,0 +1,14 @@
+<section class="hero">
+  {{ with site.Params.heroImage }}
+    <img class="hero-bild" src="{{ . | relURL }}" alt="Mannschaftsfoto der UHC Keiler" loading="eager">
+  {{ else }}
+    {{/* Bis das Mannschaftsfoto da ist: ruhige Fläche statt kaputtes Bild. */}}
+    <div class="hero-bild hero-platzhalter" role="img" aria-label="Platz für das Mannschaftsfoto"></div>
+  {{ end }}
+  <div class="hero-text">
+    <div class="wrap">
+      <h1>{{ site.Title }}</h1>
+      <p class="claim">{{ site.Params.claim }}</p>
+    </div>
+  </div>
+</section>

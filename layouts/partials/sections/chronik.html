@@ -1,0 +1,39 @@
+{{/*
+  Das Herzstück (Konzept, Abschnitt 3).
+  Fließtext steht in content/chronik.md, der Zeitstrahl in data/chronik.yaml.
+  Wenn die Chronik zu lang für die Startseite wird, genügt es,
+  `eigeneSeite: true` im Front Matter von content/chronik.md zu setzen –
+  dann steht hier nur noch ein Anriss mit Link.
+*/}}
+{{ $seite := site.GetPage "/chronik" }}
+{{ $eigeneSeite := and $seite $seite.Params.eigeneSeite }}
+
+<section id="chronik" class="abschnitt abschnitt-betont">
+  <div class="wrap schmal">
+    <h2>Chronik</h2>
+
+    {{ with $seite }}
+      {{ if $eigeneSeite }}
+        {{ .Summary }}
+        <p><a class="knopf" href="{{ .RelPermalink }}">Die ganze Chronik lesen</a></p>
+      {{ else }}
+        {{ .Content }}
+      {{ end }}
+    {{ end }}
+
+    {{ if not $eigeneSeite }}
+      {{ with hugo.Data.chronik }}
+        <ol class="zeitstrahl">
+          {{ range . }}
+            <li>
+              <span class="jahr">{{ .jahr }}</span>
+              <div class="eintraege">
+                {{ range .ereignisse }}<p>{{ . }}</p>{{ end }}
+              </div>
+            </li>
+          {{ end }}
+        </ol>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

@@ -1,0 +1,25 @@
+{{/*
+  Mannschaftsfotos über die Jahre. Keine Namenslisten (Entscheidung 2),
+  Vornamen höchstens in der Bildunterschrift.
+  Gepflegt wird das in data/mannschaftsfotos.yaml, die Dateien liegen
+  unter static/bilder/mannschaft/.
+*/}}
+<section id="fotos" class="abschnitt">
+  <div class="wrap">
+    <h2>Mannschaftsfotos</h2>
+    {{ with hugo.Data.mannschaftsfotos }}
+      <div class="galerie">
+        {{ range . }}
+          <figure>
+            <img src="{{ .datei | relURL }}" alt="{{ with .alt }}{{ . }}{{ else }}Mannschaftsfoto {{ .jahr }}{{ end }}" loading="lazy">
+            <figcaption>
+              <strong>{{ .jahr }}</strong>{{ with .unterschrift }} – {{ . }}{{ end }}
+            </figcaption>
+          </figure>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="hinweis">Die Mannschaftsfotos werden gerade zusammengetragen.</p>
+    {{ end }}
+  </div>
+</section>

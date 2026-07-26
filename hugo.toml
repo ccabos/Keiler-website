@@ -1,0 +1,36 @@
+baseURL = "https://uhc-keiler.de/"
+locale = "de-DE"
+defaultContentLanguage = "de"
+title = "UHC Keiler"
+
+enableRobotsTXT = true
+enableGitInfo = false
+
+# Keine Kategorien, keine Tags. Genau diese Archive waren auf der alten
+# Seite die Karteileichen (Abschnitt 1 des Konzepts).
+[taxonomies]
+
+[params]
+  claim = "Hockey beim Uhlenhorster HC – seit den Anfängen, immer noch."
+  email = "info@uhc-keiler.de"
+  instagram = "uhc.keiler"
+  # Abschnitt 4, Entscheidung 4: verlinken oder einbetten ist noch offen.
+  # Solange "einbetten" nicht entschieden ist, steht hier der Link.
+  sixpackURL = "https://www.sixpack-liga.de/"
+  sixpackEmbed = false
+  # Mannschaftsfoto für den Kopf, abgelegt unter static/bilder/
+  heroImage = ""
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[minify]
+  disableXML = true
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]

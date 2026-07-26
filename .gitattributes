@@ -1,0 +1,13 @@
+# Im Repository stehen immer LF. Das haelt die Diffs sauber, egal ob jemand
+# unter Windows, auf dem Mac oder direkt in der GitHub-Weboberflaeche
+# bearbeitet.
+* text=auto eol=lf
+
+# Binaerdateien nicht anfassen.
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.webp binary
+*.pdf  binary
+*.ico  binary

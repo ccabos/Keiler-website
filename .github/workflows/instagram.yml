@@ -1,0 +1,59 @@
+# Holt den Instagram-Feed einmal täglich ab und legt Bilder und Metadaten
+# fest ins Repository (Konzept, Abschnitt 7).
+#
+# Der Punkt dabei: Die Website liest niemals live von Instagram. Fällt die
+# Schnittstelle aus oder läuft der Token ab, bleibt der zuletzt eingecheckte
+# Stand einfach stehen. Kaputtgehen kann hier nur der Job, nicht die Seite.
+#
+# ---------------------------------------------------------------------------
+# NOCH NICHT AKTIV. Zum Einschalten:
+#   1. Repository-Variable  INSTAGRAM_ENABLED = true
+#      (Settings → Secrets and variables → Actions → Variables)
+#   2. Repository-Secrets    IG_USER_ID  und  IG_ACCESS_TOKEN
+#      (Settings → Secrets and variables → Actions → Secrets)
+#   3. Settings → Actions → General → Workflow permissions
+#      auf "Read and write permissions" stellen
+#
+# Der Token der Instagram Graph API ist 60 Tage gültig und wird vom Job bei
+# jedem Lauf verlängert – solange der Job mindestens alle 60 Tage läuft,
+# bleibt er gültig. Bricht das ab, muss er einmal von Hand erneuert werden.
+# ---------------------------------------------------------------------------
+
+name: Instagram-Feed abholen
+
+on:
+  schedule:
+    - cron: "17 4 * * *"   # täglich 04:17 UTC
+  workflow_dispatch:        # zusätzlich von Hand auslösbar
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  abholen:
+    if: vars.INSTAGRAM_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Feed abrufen und Bilder speichern
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python3 scripts/instagram_abholen.py
+
+      - name: Änderungen einchecken
+        run: |
+          git config user.name  "Instagram-Automatik"
+          git config user.email "actions@github.com"
+          git add data/instagram.json static/bilder/instagram
+          if git diff --staged --quiet; then
+            echo "Keine neuen Beiträge."
+          else
+            git commit -m "Instagram-Feed aktualisiert"
+            git push
+          fi

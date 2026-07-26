@@ -1,0 +1,37 @@
+{{/*
+  Ausfallsicher gebaut (Konzept, Abschnitt 7): gerendert wird ausschließlich
+  aus data/instagram.json und den Bildern unter static/bilder/instagram/,
+  die eine GitHub Action einmal täglich ins Repository legt.
+  Kein Live-Abruf im Browser, kein Token, das im Betrieb ablaufen kann.
+  Fällt die Action aus, bleibt der letzte eingecheckte Stand stehen.
+*/}}
+{{ $handle := site.Params.instagram }}
+{{ $posts := hugo.Data.instagram }}
+
+<section id="instagram" class="abschnitt abschnitt-betont">
+  <div class="wrap">
+    <h2>Instagram</h2>
+    <p class="hinweis">
+      Der Alltag der Keiler läuft auf Instagram:
+      <a href="https://www.instagram.com/{{ $handle }}/" rel="me noopener">@{{ $handle }}</a>
+    </p>
+
+    {{ with $posts }}
+      <div class="galerie galerie-eng">
+        {{ range first 9 . }}
+          <figure>
+            <a href="{{ .permalink }}" rel="noopener">
+              <img src="{{ .bild | relURL }}" alt="{{ with .text }}{{ . | truncate 120 }}{{ else }}Instagram-Beitrag der UHC Keiler{{ end }}" loading="lazy">
+            </a>
+            {{ with .datum }}<figcaption>{{ . }}</figcaption>{{ end }}
+          </figure>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="hinweis">
+        Der Feed wird noch eingerichtet. Bis dahin führt der Weg direkt zu
+        <a href="https://www.instagram.com/{{ $handle }}/" rel="noopener">@{{ $handle }}</a>.
+      </p>
+    {{ end }}
+  </div>
+</section>

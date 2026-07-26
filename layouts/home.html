@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+  {{ partial "sections/hero.html" . }}
+
+  <section id="wer-wir-sind" class="abschnitt">
+    <div class="wrap schmal">
+      <h2>Wer wir sind</h2>
+      {{ .Content }}
+    </div>
+  </section>
+
+  {{ partial "sections/chronik.html" . }}
+  {{ partial "sections/fotos.html" . }}
+  {{ partial "sections/instagram.html" . }}
+  {{ partial "sections/ergebnisse.html" . }}
+  {{ partial "sections/kontakt.html" . }}
+
+{{ end }}

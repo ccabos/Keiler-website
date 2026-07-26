@@ -1,0 +1,182 @@
+/* UHC Keiler – ein einziges Stylesheet, keine Abhängigkeiten. */
+
+:root {
+  --papier: #fbfaf8;
+  --papier-betont: #f2efe9;
+  --tinte: #23211e;
+  --tinte-leise: #6b6660;
+  --akzent: #7a2e1f;      /* Keilerrot-braun */
+  --linie: #ddd8d0;
+  --breite: 68rem;
+  --breite-schmal: 42rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--tinte);
+  font: 1.05rem/1.65 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--akzent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--akzent); outline-offset: 2px; }
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--tinte); color: var(--papier);
+  padding: .6rem 1rem; z-index: 10;
+}
+.skip:focus { left: .5rem; top: .5rem; }
+
+.wrap { max-width: var(--breite); margin-inline: auto; padding-inline: 1.25rem; }
+
+/* Schmale Abschnitte behalten die linke Kante der breiten – begrenzt wird
+   die Zeilenlänge, nicht der Container. Sonst springen die Überschriften
+   von Abschnitt zu Abschnitt. */
+.schmal > * { max-width: var(--breite-schmal); }
+
+/* --- Kopf ------------------------------------------------------------- */
+
+.kopf {
+  position: sticky; top: 0; z-index: 5;
+  background: rgba(251, 250, 248, .93);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--linie);
+}
+.kopf .wrap {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+  align-items: baseline; padding-block: .7rem;
+}
+.kopf-titel {
+  font-weight: 700; font-size: 1.1rem; letter-spacing: .04em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinte);
+}
+.kopf nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-left: auto; }
+.kopf nav a {
+  font-family: system-ui, sans-serif; font-size: .85rem;
+  color: var(--tinte-leise); text-decoration: none;
+}
+.kopf nav a:hover { color: var(--akzent); text-decoration: underline; }
+
+/* --- Kopfbereich ------------------------------------------------------ */
+
+.hero { position: relative; background: var(--tinte); }
+.hero-bild {
+  width: 100%; max-height: 70vh; object-fit: cover;
+  opacity: .55;
+}
+.hero-platzhalter {
+  min-height: 42vh;
+  background: linear-gradient(160deg, #3a352f, #23211e 70%);
+}
+.hero-text {
+  position: absolute; inset-inline: 0; bottom: 0;
+  padding-block: 2.5rem 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .72));
+  color: #fff;
+}
+.hero-text h1 {
+  margin: 0; font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: .02em; line-height: 1.1;
+}
+.claim {
+  margin: .5rem 0 0; max-width: 34rem;
+  font-family: system-ui, sans-serif; font-size: 1.05rem; opacity: .92;
+}
+
+/* --- Abschnitte ------------------------------------------------------- */
+
+.abschnitt { padding-block: 3.5rem; border-bottom: 1px solid var(--linie); }
+.abschnitt-betont { background: var(--papier-betont); }
+.abschnitt > .wrap > h2 {
+  margin: 0 0 1.2rem;
+  font-size: 1.9rem; letter-spacing: .01em;
+}
+.abschnitt > .wrap > h2::after {
+  content: ""; display: block; width: 3rem; height: 3px;
+  margin-top: .6rem; background: var(--akzent);
+}
+
+p { margin-block: 0 1rem; }
+.hinweis { color: var(--tinte-leise); font-family: system-ui, sans-serif; font-size: .95rem; }
+.willkommen { font-size: 1.25rem; font-weight: 700; }
+
+.knopf {
+  display: inline-block; padding: .6rem 1.2rem;
+  background: var(--akzent); color: #fff;
+  font-family: system-ui, sans-serif; font-size: .95rem;
+  text-decoration: none; border-radius: 2px;
+}
+.knopf:hover { background: #5e2317; }
+
+/* --- Zeitstrahl ------------------------------------------------------- */
+
+.zeitstrahl { list-style: none; margin: 2rem 0 0; padding: 0; }
+.zeitstrahl li {
+  display: grid; grid-template-columns: 5rem 1fr; gap: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-left: 2px solid var(--linie);
+  padding-left: 1.25rem; margin-left: .5rem;
+}
+.zeitstrahl li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.jahr {
+  font-weight: 700; color: var(--akzent);
+  font-variant-numeric: tabular-nums;
+}
+.eintraege p:last-child { margin-bottom: 0; }
+
+@media (max-width: 34rem) {
+  .zeitstrahl li { grid-template-columns: 1fr; gap: .25rem; }
+}
+
+/* --- Galerien --------------------------------------------------------- */
+
+.galerie {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  margin-top: 1.5rem;
+}
+.galerie-eng { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1rem; }
+.galerie figure { margin: 0; }
+.galerie img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  background: var(--papier-betont); border-radius: 2px;
+}
+.galerie-eng img { aspect-ratio: 1; }
+.galerie figcaption {
+  margin-top: .5rem;
+  font-family: system-ui, sans-serif; font-size: .85rem; color: var(--tinte-leise);
+}
+
+/* --- Einbettung ------------------------------------------------------- */
+
+.einbettung { aspect-ratio: 4 / 3; margin-block: 1.5rem; }
+.einbettung iframe { width: 100%; height: 100%; border: 1px solid var(--linie); }
+
+/* --- Fußzeile --------------------------------------------------------- */
+
+.fuss { padding-block: 2.5rem; font-family: system-ui, sans-serif; font-size: .9rem; }
+.fuss nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.fuss-zeile { margin-top: .75rem; color: var(--tinte-leise); }
+
+/* --- Fließtext auf Unterseiten ---------------------------------------- */
+
+article h1 { font-size: 2.2rem; margin-top: 0; }
+.prosa h2 { font-size: 1.35rem; margin-top: 2.2rem; }
+.prosa h3 { font-size: 1.1rem; margin-top: 1.8rem; }
+.prosa ul, .prosa ol { padding-left: 1.25rem; }
+.prosa > * { max-width: var(--breite-schmal); }
+
+table { border-collapse: collapse; width: 100%; margin-block: 1.5rem; }
+th, td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--linie); }
+th { font-family: system-ui, sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }

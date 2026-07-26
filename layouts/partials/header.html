@@ -1,0 +1,19 @@
+<header class="kopf">
+  <div class="wrap">
+    <a class="kopf-titel" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    {{ if .IsHome }}
+      <nav aria-label="Abschnitte">
+        <a href="#wer-wir-sind">Wer wir sind</a>
+        <a href="#chronik">Chronik</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#ergebnisse">Ergebnisse</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    {{ else }}
+      <nav aria-label="Abschnitte">
+        <a href="{{ "/" | relURL }}">Zurück zur Startseite</a>
+      </nav>
+    {{ end }}
+  </div>
+</header>
