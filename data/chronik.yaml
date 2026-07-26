@@ -1,27 +1,67 @@
 # Zeitstrahl der Chronik.
-# Übernommen aus Abschnitt 5 des Konzepts ("Bereits gefundene Ankerpunkte").
-# Das ist das Gerüst, nicht die fertige Chronik – Einträge ergänzen,
-# präzisieren und mit Monatsangaben versehen, sobald das Material da ist.
+#
+# Gezogen aus den Sitzungsprotokollen 1998–2025 und aus "KEILER – Der Anfang".
+# Das ausführliche Arbeitsmaterial mit Quellenangaben liegt im Backup unter
+# 06-chronik-material/chronik-geruest.md – nicht in diesem Repository, weil
+# es vollständige Namen enthält.
+#
+# NUR VORNAMEN, solange die Mannschaft über Frage 1 nicht entschieden hat
+# (offener Punkt 1 des Konzepts). Die Gründer stehen hier bewusst noch nicht
+# mit Nachnamen, obwohl sie in der Quelle so genannt sind.
 #
 # Bearbeiten geht direkt auf github.com: Datei öffnen, Stift anklicken.
-# Format je Jahr:
-#   - jahr: 2018
-#     ereignisse:
-#       - "Ein Satz pro Ereignis."
 
-- jahr: "2007–2017"
+- jahr: "1995"
   ereignisse:
-    - "Die Ergebnisse sind durchgehend dokumentiert."
+    - "Sechs Väter hockeyspielender Kinder gründen auf Anraten des Trainers eine eigene Mannschaft."
+    - "Erstes Training an einem Dienstagabend auf Platz 1. Der Dienstag bleibt seitdem Trainingstag."
+    - "Der erste Name lautet „Frischlinge”."
+
+- jahr: "1996"
+  ereignisse:
+    - "Am 9. Januar fällt die Namenswahl: KEILER setzt sich mit einer Stimme Mehrheit gegen „UHU’s” und „Frischlinge” durch."
+    - "Erste Teilnahme an einer UHC-Mitgliederversammlung."
+
+- jahr: "1997"
+  ereignisse:
+    - "Die Keiler übernehmen das Kinderfest des UHC und führen es über Jahre fort."
+
+- jahr: "1999"
+  ereignisse:
+    - "Gründungsmitglied der Sixpack-Liga."
+    - "Erstes eigenes Freizeithockeyturnier."
+
+- jahr: "2000"
+  ereignisse:
+    - "Gemeinsamer Ausflug: Segeltour auf der Mecklenburger Seenplatte."
+
+- jahr: "2011"
+  ereignisse:
+    - "Anton, der Trainer der Keiler, stirbt."
+
+- jahr: "2012"
+  ereignisse:
+    - "Das Turnier wird ihm zu Ehren in Keiler-Anton-Turnier umbenannt."
 
 - jahr: "2013"
   ereignisse:
-    - "Die Protokolle der Mannschaftssitzungen beginnen."
+    - "Das Turnier findet erstmals im Herbst statt."
+    - "Ab hier sind die Mannschaftssitzungen durchgehend protokolliert."
+
+- jahr: "2015"
+  ereignisse:
+    - "Zwanzig Jahre Keiler."
+
+- jahr: "2017"
+  ereignisse:
+    - "Der Aufstieg wird knapp verpasst – fünfter Platz in der Gruppe Platin."
 
 - jahr: "2018"
   ereignisse:
     - "Aufstieg in die Gruppe Titan."
-    - "Peter gibt die Rolle des Oberkeilers an Arne ab."
-    - "Keiler-Anton-Cup, Frischlingsfest und Kinderfest im UHC."
+    - "Der zwanzigste Keiler-Anton-Cup."
+    - "Peter gibt die Rolle des Oberkeilers nach sechs Jahren an Arne ab."
+    - "Frischlingsfest und Kinderfest im UHC."
 
 - jahr: "2019"
   ereignisse:
@@ -41,3 +81,7 @@
     - "Paddle Tennis."
     - "Acht selbstgebaute Kindertore für den UHC."
     - "Begegnung mit UHC-Weltmeister Hannes Müller."
+
+- jahr: "2025"
+  ereignisse:
+    - "Dreißig Jahre Keiler."
