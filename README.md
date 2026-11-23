@@ -2,7 +2,7 @@
 
 Die neue Seite für [uhc-keiler.de](https://uhc-keiler.de). Statisch gebaut mit
 [Hugo](https://gohugo.io), versioniert auf GitHub, ausgeliefert von Cloudflare
-Pages. Kein CMS, keine Datenbank, keine Plugins.
+Workers. Kein CMS, keine Datenbank, keine Plugins.
 
 Das Konzept dahinter steht in [`keiler-website-konzept.md`](keiler-website-konzept.md).
 
@@ -38,22 +38,41 @@ Bilder gehen genauso: In `static/bilder/` auf „Add file → Upload files".
 hugo server
 ```
 
-Dann http://localhost:1313 aufrufen. Für einmaliges Bauen: `hugo --minify`,
-das Ergebnis landet in `public/` (nicht eingecheckt).
+Dann http://localhost:1313 aufrufen. Für einmaliges Bauen:
+`bash scripts/build.sh` – das Skript holt sich bei Bedarf die richtige
+Hugo-Version selbst. Das Ergebnis landet in `public/` (nicht eingecheckt).
 
-## Cloudflare Pages einrichten
+## Cloudflare Workers einrichten
 
-Beim Anlegen des Projekts im Cloudflare-Dashboard:
+Die Seite läuft als Worker, der nur die gebaute Seite aus `public/`
+ausliefert. Die Einstellungen dafür stehen in `wrangler.jsonc`, gebaut wird
+mit `scripts/build.sh`. Das Skript lädt die Hugo-Version aus `HUGO_VERSION`
+(Vorgabe 0.164.0) selbst herunter, man ist also nicht darauf angewiesen,
+was Cloudflare vorinstalliert hat.
 
-| Einstellung | Wert |
-|---|---|
-| Framework preset | Hugo |
-| Build command | `hugo --minify` |
-| Build output directory | `public` |
-| Environment variable | `HUGO_VERSION` = `0.164.0` |
+Einmalig im Cloudflare-Dashboard:
 
-`HUGO_VERSION` ist wichtig: Ohne die Angabe nimmt Cloudflare eine sehr alte
-Hugo-Version, mit der dieser Aufbau nicht baut.
+1. **Workers & Pages → Create → Import a repository**, GitHub verbinden und
+   `keiler-website` auswählen.
+2. Einstellungen:
+
+   | Einstellung | Wert |
+   |---|---|
+   | Project name | `keiler-website` (muss zu `name` in `wrangler.jsonc` passen) |
+   | Build command | `bash scripts/build.sh` |
+   | Deploy command | `npx wrangler deploy` |
+   | Root directory | leer lassen |
+
+3. **Deploy**. Danach ist die Seite unter
+   `keiler-website.<konto>.workers.dev` zu sehen.
+
+Ab dann baut Cloudflare bei jedem Commit auf `main` neu.
+
+Die eigene Domain kommt erst am Ende dazu (Schritt 9 im Konzept): unter
+**Settings → Domains & Routes → Add → Custom domain** `uhc-keiler.de` und
+`www.uhc-keiler.de` eintragen. Voraussetzung ist, dass das DNS der Domain bei
+Cloudflare liegt. Vor dem Umstellen der Nameserver prüfen, dass die
+MX-Einträge für die E-Mail übernommen wurden.
 
 ## Noch offen
 
