@@ -11,7 +11,7 @@ title: "Datenschutzerklärung"
   Text deutlich kürzer aus als bei der alten WordPress-Seite.
 
   Drei Punkte müssen aber konkret beantwortet werden:
-  1. Server-Logfiles bei Cloudflare Pages (IP-Adressen, Aufbewahrungsdauer)
+  1. Server-Logfiles bei Cloudflare Workers (IP-Adressen, Aufbewahrungsdauer)
   2. Instagram – siehe Hinweis unten
   3. Sixpack-Liga – nur ein Link, solange sixpackEmbed = false bleibt.
      Wird auf Einbettung umgestellt, muss das hier ergänzt werden.

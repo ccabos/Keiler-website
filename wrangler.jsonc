@@ -1,0 +1,15 @@
+// Einstellungen für Cloudflare Workers.
+// Im Moment liefert der Worker nur die fertig gebaute Seite aus public/ aus,
+// es läuft noch kein eigenes Programm. Für die Spielanmeldungen kommt hier
+// später ein Eintrag "main" dazu.
+{
+  "name": "keiler-website",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    // Falsche Adressen zeigen die eigene Fehlerseite (layouts/404.html).
+    "not_found_handling": "404-page",
+    // /chronik und /chronik/ führen beide zur Chronik.
+    "html_handling": "auto-trailing-slash"
+  }
+}
