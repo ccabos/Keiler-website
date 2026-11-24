@@ -14,8 +14,8 @@ Das Konzept dahinter steht in [`keiler-website-konzept.md`](keiler-website-konze
 |---|---|
 | `content/_index.md` | Der Absatz „Wer wir sind" auf der Startseite |
 | `content/chronik.md` | Der Fließtext der Chronik |
-| `content/impressum.md` | Impressum – **noch Platzhalter** |
-| `content/datenschutz.md` | Datenschutzerklärung – **noch Platzhalter** |
+| `content/impressum.md` | Impressum – **Name und Anschrift fehlen noch** |
+| `content/datenschutz.md` | Datenschutzerklärung – **Name und Anschrift fehlen noch** |
 | `data/chronik.yaml` | Der Zeitstrahl der Chronik |
 | `data/mannschaftsfotos.yaml` | Welche Mannschaftsfotos gezeigt werden |
 | `data/instagram.json` | Wird von der GitHub Action geschrieben, nicht von Hand |
@@ -87,7 +87,7 @@ Die vier Fragen an die Mannschaft aus Abschnitt 6 des Konzepts:
 
 Dazu technisch:
 
-- Impressum und Datenschutzerklärung ausfüllen (Schritt 5)
+- In Impressum und Datenschutzerklärung Name und Anschrift des Verantwortlichen eintragen (Schritt 5)
 - Mannschaftsfoto für den Kopf nach `static/bilder/` legen und `heroImage`
   in `hugo.toml` setzen
 - Instagram-Automatik scharf schalten, siehe Kopf von
